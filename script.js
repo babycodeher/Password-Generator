@@ -89,22 +89,38 @@ let upperCasedCharacters = [
   'Z'
 ];
 
-let mixedCharacterArray = []
+let mixedCharacterArray = [];
 
+let passwordLength = 0;
+
+console.log(passwordLength);
+
+//Define password prompt message
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  
 
-  mixedCharacterArray = mixedCharacterArray.concat()
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  
+  passwordLength = prompt("What is your preferred password length? Enter a number between 10 and 64");
+
+  let randomPassword = "";
+  for (let i = 0; i < 100; i++) {
+    
+    randomPassword += "j"
+    
+  }
+
+  return randomPassword;
 
 }
 
