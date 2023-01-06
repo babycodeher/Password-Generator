@@ -1,3 +1,4 @@
+
 // Array of special characters to be included in password
 let specialCharacters = [
   '@',
@@ -88,9 +89,13 @@ let upperCasedCharacters = [
   'Z'
 ];
 
+let mixedCharacterArray = []
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
 
+  mixedCharacterArray = mixedCharacterArray.concat()
 }
 
 // Function for getting a random element from an array
