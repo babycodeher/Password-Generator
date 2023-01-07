@@ -96,9 +96,6 @@ mixedCharacterArray = mixedCharacterArray.concat (specialCharacters, numericChar
 console.log(mixedCharacterArray);
 
 
-let passwordLength = 0;
-
-console.log(passwordLength);
 
 //Define password prompt message
 
@@ -131,32 +128,41 @@ function getPasswordOptions() {
   //   return mixedCharacterArray;
 
   // }
-  
+
 
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   
+  
+  let random = Math.floor(Math.random()*mixedCharacterArray.length)
+  
+  // console.log(mixedCharacterArray[randomIndex]);let randomIndex = Math.floor(Math.random()*arrayName.length)
+
+//  return randomIndex;
+
 }
 
 // Function to generate password with user input
 function generatePassword() {
   
-  passwordLength = prompt("What is your preferred password length? Enter a number between 10 and 64");
-
-  console.log(passwordLength);
-
   let randomPassword = "";
-  for (let i = 0; i < 100; i++) {
+  
+  passwordLength = prompt("What is your preferred password length? Enter a number between 10 and 64");
+  
+  for (let i = 0; i < passwordLength; i++) {
     
     randomPassword += "j"
     
   }
-
+  
   return randomPassword;
-
+  
 }
+
+
+
 
 // Get references to the #generate element
 let generateBtn = document.querySelector('#generate');
