@@ -91,6 +91,11 @@ let upperCasedCharacters = [
 
 let mixedCharacterArray = [];
 
+mixedCharacterArray = mixedCharacterArray.concat (specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+
+console.log(mixedCharacterArray);
+
+
 let passwordLength = 0;
 
 console.log(passwordLength);
@@ -99,6 +104,33 @@ console.log(passwordLength);
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+
+
+  // if (passwordLength > 9 && passwordLength <65) {
+    
+  //   let plusSpecialCharacter = confirm("Should the password include special characters?");
+    
+  //   if (plusSpecialCharacter === true) {
+      
+  //     mixedCharacterArray = mixedCharacterArray.concat(specialCharacters);
+  //   }
+    
+  //   let plusNumericCharacter = confirm("Should the password include numeric characters?");
+    
+  //   if (plusNumericCharacter === true) {
+      
+  //     mixedCharacterArray = mixedCharacterArray.concat(specialCharacters, numericCharacters);
+  //   }
+    
+
+  //   if (plusLowercasedCharacter === true) {
+      
+  //     mixedCharacterArray = mixedCharacterArray.concat(specialCharacters, numericCharacters, lowerCasedCharacters);
+
+  //   }
+  //   return mixedCharacterArray;
+
+  // }
   
 
 }
@@ -112,6 +144,8 @@ function getRandom(arr) {
 function generatePassword() {
   
   passwordLength = prompt("What is your preferred password length? Enter a number between 10 and 64");
+
+  console.log(passwordLength);
 
   let randomPassword = "";
   for (let i = 0; i < 100; i++) {
