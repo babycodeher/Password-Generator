@@ -91,57 +91,75 @@ let upperCasedCharacters = [
 
 let mixedCharacterArray = [];
 
-mixedCharacterArray = mixedCharacterArray.concat (specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+// mixedCharacterArray = mixedCharacterArray.concat (specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters);
 
-console.log(mixedCharacterArray);
+// console.log(mixedCharacterArray);
 
 
-
+let passwordLength = 0;
 //Define password prompt message
 
 // Function to prompt user for password options
 function getPasswordOptions() {
 
 
-  // if (passwordLength > 9 && passwordLength <65) {
+  if (passwordLength > 9 && passwordLength <65) {
     
-  //   let plusSpecialCharacter = confirm("Should the password include special characters?");
-    
-  //   if (plusSpecialCharacter === true) {
-      
-  //     mixedCharacterArray = mixedCharacterArray.concat(specialCharacters);
-  //   }
-    
-  //   let plusNumericCharacter = confirm("Should the password include numeric characters?");
-    
-  //   if (plusNumericCharacter === true) {
-      
-  //     mixedCharacterArray = mixedCharacterArray.concat(specialCharacters, numericCharacters);
-  //   }
+       let plusSpecialCharacter = prompt("Should the password include special characters?");
     
 
-  //   if (plusLowercasedCharacter === true) {
-      
-  //     mixedCharacterArray = mixedCharacterArray.concat(specialCharacters, numericCharacters, lowerCasedCharacters);
+          if (plusSpecialCharacter === true) {
+            
+            mixedCharacterArray = mixedCharacterArray.concat(specialCharacters);
+          }
+    
+      let plusNumericCharacter = prompt("Should the password include numeric characters?");
+    
+          if (plusNumericCharacter === true) {
+            
+            mixedCharacterArray = mixedCharacterArray.concat(numericCharacters);
 
-  //   }
-  //   return mixedCharacterArray;
+          }
 
-  // }
+      let plusLowerCasedCharacter = prompt("Should the password include lower cased character?")
 
+          if (plusLowerCasedCharacter === true) {
+            
+            mixedCharacterArray = mixedCharacterArray.concat(lowerCasedCharacters);
 
+          }
+
+      let plusUpperCasedCharacter = prompt("Should the password include upper cased characters?");
+
+          if (plusUpperCasedCharacter === true) {mixedCharacterArray = mixedCharacterArray.concat(upperCasedCharacters);
+            
+          }
+
+          return mixedCharacterArray;
+
+          }
+
+  else{
+
+        alert("Nice try! Please select a number between 10 and 64");
+
+  }
+  
+  
 }
 
+
+
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom() {
   
   
-  let random = Math.floor(Math.random()*mixedCharacterArray.length)
+  let randomIndex = Math.floor(Math.random()*mixedCharacterArray.length)
   
   // console.log(mixedCharacterArray[randomIndex]);let randomIndex = Math.floor(Math.random()*arrayName.length)
-
-//  return randomIndex;
-
+  
+  return randomIndex;
+  
 }
 
 // Function to generate password with user input
@@ -151,6 +169,8 @@ function generatePassword() {
   
   passwordLength = prompt("What is your preferred password length? Enter a number between 10 and 64");
   
+  
+  
   for (let i = 0; i < passwordLength; i++) {
     
     randomPassword += "j"
@@ -158,6 +178,7 @@ function generatePassword() {
   }
   
   return randomPassword;
+  
   
 }
 
@@ -170,7 +191,10 @@ let generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
+  getPasswordOptions();
+  getRandom();
   let passwordText = document.querySelector('#password');
+
 
   passwordText.value = password;
 }
