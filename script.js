@@ -89,100 +89,96 @@ let upperCasedCharacters = [
   'Z'
 ];
 
-let mixedCharacterArray = [];
+// Here we define the Variables Globally
+let mixedCharacterArray;
 
-// mixedCharacterArray = mixedCharacterArray.concat (specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+let passwordLength;
 
-// console.log(mixedCharacterArray);
-
-
-let passwordLength = 0;
-//Define password prompt message
 
 // Function to prompt user for password options
 function getPasswordOptions() {
 
-
+  // Update/redeclare  an empty VALUE
+  mixedCharacterArray = [];
+  
   if (passwordLength > 9 && passwordLength <65) {
     
-       let plusSpecialCharacter = prompt("Should the password include special characters?");
+      let plusSpecialCharacter = confirm("Should the password include special characters?");
     
-
           if (plusSpecialCharacter === true) {
             
             mixedCharacterArray = mixedCharacterArray.concat(specialCharacters);
           }
     
-      let plusNumericCharacter = prompt("Should the password include numeric characters?");
+      let plusNumericCharacter = confirm("Should the password include numeric characters?");
     
           if (plusNumericCharacter === true) {
             
             mixedCharacterArray = mixedCharacterArray.concat(numericCharacters);
-
+            
           }
-
-      let plusLowerCasedCharacter = prompt("Should the password include lower cased character?")
-
+    
+      let plusLowerCasedCharacter = confirm("Should the password include lower cased character?")
+    
           if (plusLowerCasedCharacter === true) {
-            
+
             mixedCharacterArray = mixedCharacterArray.concat(lowerCasedCharacters);
-
-          }
-
-      let plusUpperCasedCharacter = prompt("Should the password include upper cased characters?");
-
-          if (plusUpperCasedCharacter === true) {mixedCharacterArray = mixedCharacterArray.concat(upperCasedCharacters);
             
           }
-
-          return mixedCharacterArray;
-
-          }
-
+    
+      let plusUpperCasedCharacter = confirm("Should the password include upper cased characters?");
+    
+            if (plusUpperCasedCharacter === true) {mixedCharacterArray = mixedCharacterArray.concat(upperCasedCharacters);
+              
+            }
+    
+      return mixedCharacterArray;
+    
+    }
+  
   else{
-
-        alert("Nice try! Please select a number between 10 and 64");
-
+    
+    alert("Nice try! Please select a number between 10 and 64");
+    
   }
   
-  
 }
-
-
 
 // Function for getting a random element from an array
 function getRandom() {
   
-  
-  let randomIndex = Math.floor(Math.random()*mixedCharacterArray.length)
-  
-  // console.log(mixedCharacterArray[randomIndex]);let randomIndex = Math.floor(Math.random()*arrayName.length)
+  let randomIndex = Math.floor(Math.random() * mixedCharacterArray.length);
   
   return randomIndex;
   
 }
+
 
 // Function to generate password with user input
 function generatePassword() {
   
   let randomPassword = "";
   
-  passwordLength = prompt("What is your preferred password length? Enter a number between 10 and 64");
-  
-  
+  //Define password prompt message
+  passwordLength = prompt("What is your preferred password length? Enter a number from 10 and 64");
+
+  let dataSet = getPasswordOptions();
+  console.log(dataSet);
+  // console.log("******");
+  console.log(mixedCharacterArray);
   
   for (let i = 0; i < passwordLength; i++) {
-    
-    randomPassword += "j"
-    
+    // Console check to confirm the for loop sequence output
+    console.log("I is: ", i);
+
+    let indexNumber = getRandom();
+    console.log(indexNumber);
+    randomPassword += dataSet[indexNumber];
   }
   
   return randomPassword;
-  
-  
+
 }
-
-
 
 
 // Get references to the #generate element
@@ -191,12 +187,10 @@ let generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
-  getPasswordOptions();
-  getRandom();
   let passwordText = document.querySelector('#password');
 
-
   passwordText.value = password;
+
 }
 
 // Add event listener to generate button
