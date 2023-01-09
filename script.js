@@ -103,6 +103,7 @@ function getPasswordOptions() {
   
   if (passwordLength > 9 && passwordLength <65) {
     
+      // Confirmation if statement specifying users desired password character mix
       let plusSpecialCharacter = confirm("Should the password include special characters?");
     
           if (plusSpecialCharacter === true) {
@@ -172,6 +173,7 @@ function generatePassword() {
     console.log("I is: ", i);
 
     let indexNumber = getRandom();
+    // Console check to confirm random index number being generated
     console.log(indexNumber);
     randomPassword += dataSet[indexNumber];
   }
